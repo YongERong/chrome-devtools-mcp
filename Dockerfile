@@ -13,10 +13,7 @@ RUN apt-get update \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-COPY package*.json ./
-
-RUN npm install npx typescript @types/mocha && npm install
-
 COPY . .
+RUN npm install npx typescript @types/mocha && npm install
 
 CMD ["npm", "start"]
